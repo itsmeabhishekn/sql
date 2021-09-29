@@ -1,7 +1,7 @@
 https://www.thecrazyprogrammer.com/plsql-programs-examples
 
 
-[10:02 pm, 02/09/2021] Poli Sarath: CREATE TABLE CUSTOMERS( 
+CREATE TABLE CUSTOMERS( 
    ID   INT NOT NULL, 
    NAME VARCHAR (20) NOT NULL, 
    AGE INT NOT NULL, 
@@ -9,7 +9,9 @@ https://www.thecrazyprogrammer.com/plsql-programs-examples
    SALARY   DECIMAL (18, 2),        
    PRIMARY KEY (ID) 
 );
-[10:02 pm, 02/09/2021] Poli Sarath: INSERT INTO CUSTOMERS (ID,NAME,AGE,ADDRESS,SALARY) 
+
+
+INSERT INTO CUSTOMERS (ID,NAME,AGE,ADDRESS,SALARY) 
 VALUES (1, 'Ramesh', 32, 'Ahmedabad', 2000.00 );  
 
 INSERT INTO CUSTOMERS (ID,NAME,AGE,ADDRESS,SALARY) 
@@ -23,9 +25,12 @@ VALUES (4, 'Chaitali', 25, 'Mumbai', 6500.00 );
  
 INSERT INTO CUSTOMERS (ID,NAME,AGE,ADDRESS,SALARY) 
 VALUES (5, 'Hardik', 27, 'Bhopal', 8500.0
-[10:02 pm, 02/09/2021] Poli Sarath: INSERT INTO CUSTOMERS (ID,NAME,AGE,ADDRESS,SALARY) 
+INSERT INTO CUSTOMERS (ID,NAME,AGE,ADDRESS,SALARY) 
 VALUES (6, 'Komal', 22, 'MP', 4500.00 );
-[10:02 pm, 02/09/2021] Poli Sarath: DECLARE  
+
+
+
+DECLARE  
    total_rows number(2); 
 BEGIN 
    UPDATE customers 
@@ -38,7 +43,9 @@ BEGIN
    END IF;  
 END; 
 /
-[10:03 pm, 02/09/2021] Merlinn: CREATE OR REPLACE TRIGGER display_salary_changes 
+
+
+CREATE OR REPLACE TRIGGER display_salary_changes 
 BEFORE DELETE OR INSERT OR UPDATE ON customers 
 FOR EACH ROW 
 WHEN (NEW.ID > 0) 
@@ -50,8 +57,9 @@ BEGIN
    dbms_output.put_line('New salary: ' || :NEW.salary); 
    dbms_output.put_line('Salary difference: ' || sal_diff); 
 END; 
-/
-[10:11 pm, 02/09/2021] Merlinn: DECLARE 
+
+
+DECLARE 
    c_id customers.id%type; 
    c_name customers.name%type; 
    c_addr customers.address%type; 
@@ -67,6 +75,8 @@ BEGIN
    CLOSE c_customers; 
 END; 
 /
-[10:29 pm, 02/09/2021] Poli Sarath: UPDATE CUSTOMERS
+
+
+UPDATE CUSTOMERS
 SET salary = salary +500
 WHERE id=3;
