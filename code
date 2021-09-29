@@ -1,6 +1,9 @@
 https://www.thecrazyprogrammer.com/plsql-programs-examples
 
 
+##CREATING TABLE
+-----------------------
+
 CREATE TABLE CUSTOMERS( 
    ID   INT NOT NULL, 
    NAME VARCHAR (20) NOT NULL, 
@@ -9,6 +12,9 @@ CREATE TABLE CUSTOMERS(
    SALARY   DECIMAL (18, 2),        
    PRIMARY KEY (ID) 
 );
+
+##INSERTING VALUES IN TO TABLE 
+------------------------------------
 
 
 INSERT INTO CUSTOMERS (ID,NAME,AGE,ADDRESS,SALARY) 
@@ -28,7 +34,8 @@ VALUES (5, 'Hardik', 27, 'Bhopal', 8500.0
 INSERT INTO CUSTOMERS (ID,NAME,AGE,ADDRESS,SALARY) 
 VALUES (6, 'Komal', 22, 'MP', 4500.00 );
 
-
+## IMPLICIT CURSOR
+----------------------------
 
 DECLARE  
    total_rows number(2); 
@@ -44,6 +51,7 @@ BEGIN
 END; 
 /
 
+##TRIGGER
 
 CREATE OR REPLACE TRIGGER display_salary_changes 
 BEFORE DELETE OR INSERT OR UPDATE ON customers 
@@ -58,6 +66,7 @@ BEGIN
    dbms_output.put_line('Salary difference: ' || sal_diff); 
 END; 
 
+##EXPLICIT CURSOR
 
 DECLARE 
    c_id customers.id%type; 
@@ -76,6 +85,8 @@ BEGIN
 END; 
 /
 
+
+##TRIGGER2
 
 UPDATE CUSTOMERS
 SET salary = salary +500
